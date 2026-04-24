@@ -1,0 +1,314 @@
+.navbar {
+  position: fixed;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(94%, 1500px);
+  height: 84px;
+  padding: 0 26px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    #F9CFF2,
+    #96C1EC
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.38),
+    0 0 22px rgba(163, 6, 207, 0.18),
+    inset 0 0 0 1px rgba(255,255,255,0.04);
+
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.navbar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255,255,255,0.08) 20%,
+      transparent 40%
+    );
+  opacity: 0.55;
+}
+
+/* EYES */
+.nav-eyes {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-right: auto; /* pushes your nav links to the center/right */
+  padding-left: 20px;
+}
+
+.eye {
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+/* ==== BLINK ==== */
+.eye.blink {
+  animation: blinkAnim 0.25s ease;
+}
+
+@keyframes blinkAnim {
+  0%   { transform: scaleY(1); }
+  50%  { transform: scaleY(0.1); }
+  100% { transform: scaleY(1); }
+}
+
+.eye:hover {
+  transform: scale(1.1);
+}
+
+.pupil {
+  width: 16px;
+  height: 16px;
+  background: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s linear;
+}
+
+/* Looking respectfully */
+.eye.squint {
+  transform: scaleY(1.25) rotate(-3deg); /* vertical squash */
+  transition: transform 0.15s ease;
+}
+
+.eye.squint .pupil {
+  transform: scale(1.55); /* slightly bigger pupil */
+}
+
+.nav-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  gap: 75px;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 160px;
+  height: 54px;
+  padding: 0 22px;
+  box-sizing: border-box;
+
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: linear-gradient(
+    135deg,
+    #F9CFF2,
+    #96C1EC
+  );
+
+  box-shadow:
+    inset 0 1px 0 linear-gradient(
+    135deg,
+    #F9CFF2,
+    #96C1EC
+  ),
+    0 4px 14px rgba(0,0,0,0.22);
+
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    color 0.22s ease;
+
+  flex: 0 0 auto;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    #F9CFF2,
+    transparent 40%,
+    #96C1EC
+  );
+  opacity: 0.85;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 14%;
+  right: 14%;
+  bottom: 6px;
+  height: 3px;
+  border-radius: 999px;
+  background: black;
+  opacity: 0;
+  transform: scaleX(0.3);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  box-shadow: 0 0 10px r#F9CFF2;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  transform: translateY(-2px) scale(1.03);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.28);
+  background: linear-gradient(
+    135deg,
+    #F9CFF2,
+    #96C1EC
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.18),
+    0 8px 18px rgba(0,0,0,0.28),
+    0 0 14px #F9CFF2;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.nav-hover-glow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 160px;
+  height: 54px;
+  transform: translateY(-50%);
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 1;
+
+  background: radial-gradient(
+    circle at center,
+    #F9CFF2,
+    #96C1EC
+    transparent 75%
+  );
+
+  filter: blur(10px);
+  opacity: 0;
+  transition:
+    left 0.24s ease,
+    width 0.24s ease,
+    opacity 0.2s ease;
+}
+
+.nav-right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.logo {
+  height: 54px;
+  object-fit: contain;
+  transform: translateX(-8px);
+  filter:
+    drop-shadow(0 0 10px #F9CFF2)
+    drop-shadow(0 0 20px #96C1EC);
+  transition: transform 0.22s ease, filter 0.22s ease;
+}
+
+.logo:hover {
+  transform: translateX(-8px) scale(1.04);
+  filter:
+    drop-shadow(0 0 14px #F9CFF2)
+    drop-shadow(0 0 24px #96C1EC);
+}
+
+.menu-toggle {
+  display: none;
+  margin-left: 14px;
+  width: 52px;
+  height: 52px;
+  border: 1px solid #96C1EC;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.menu-toggle:hover {
+  background: rgba(255,255,255,0.16);
+  box-shadow: 0 0 12px linear-gradient(
+    135deg,
+    #F9CFF2,
+    #96C1EC
+  );
+}
+
+@media (max-width: 1050px) {
+  .nav-link {
+    min-width: 130px;
+    font-size: 18px;
+    height: 48px;
+  }
+
+  .nav-hover-glow {
+    height: 48px;
+  }
+
+  .logo {
+    height: 48px;
+  }
+}
+
+@media (max-width: 860px) {
+  .nav-center {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
