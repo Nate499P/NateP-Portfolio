@@ -13,9 +13,9 @@
   justify-content: center;
 
   background: linear-gradient(
-    135deg,
-    #F9CFF2,
-    #96C1EC
+    180deg,
+    #47d2f1,
+    #ba7fa5
   );
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -122,18 +122,18 @@
 
   min-width: 160px;
   height: 54px;
-  padding: 0 22px;
+  padding: 0 32px;
   box-sizing: border-box;
 
   color: white;
   text-decoration: none;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 0.6px;
   text-transform: uppercase;
 
   border-radius: 999px;
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 3px solid rgba(19, 18, 18, 0.14);
   background: linear-gradient(
     135deg,
     #F9CFF2,

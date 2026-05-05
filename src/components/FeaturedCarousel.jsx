@@ -29,6 +29,8 @@ export default function FeaturedCarousel() {
     const [phase, setPhase] = useState(null);
     const [isAnimating, setIsAnimating] = useState(false);
     const [noTransition, setNoTransition] = useState(false);
+    
+    const [isMobile, setIsMobile] = useState(false);
 
     const cards = useMemo(() => {
         return imageFiles.map((fileName) => {
@@ -47,26 +49,55 @@ export default function FeaturedCarousel() {
         });
     }, []);
 
-    const visibleCards = useMemo(() => {
-        return Array.from({ length: 12 }, (_, i) => {
-            const cardIndex = (startIndex - 1 + i + cards.length) % cards.length;
-            return cards[cardIndex];
-        });
-    }, [startIndex, cards]);
 
-    function getSizeClass(i) {
-        if (i === 0 || i === 6) return "buffer";
-        if (i === 1 || i === 5) return "small";
-        return "large";
-    }
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth <= 768);
+  };
+
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
+
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
+
+const visibleCards = useMemo(() => {
+  const amount = isMobile ? 3 : 12;
+
+  return Array.from({ length: amount }, (_, i) => {
+    const offset = isMobile ? startIndex + i : startIndex - 1 + i;
+    const cardIndex = (offset + cards.length) % cards.length;
+    return cards[cardIndex];
+  });
+}, [startIndex, cards, isMobile]);
+
+   function getSizeClass(i) {
+  if (isMobile) {
+    if (i === 1) return "large";
+    return "small";
+  }
+
+  if (i === 0 || i === 6) return "buffer";
+  if (i === 1 || i === 5) return "small";
+  return "large";
+}
 
     function animateShift(newDirection) {
-        if (isAnimating) return;
+  if (isAnimating) return;
 
-        setIsAnimating(true);
-        setDirection(newDirection);
-        setPhase("shrinking");
-    }
+  if (isMobile) {
+    setStartIndex((prev) =>
+      newDirection === "next"
+        ? (prev + 1) % cards.length
+        : (prev - 1 + cards.length) % cards.length
+    );
+    return;
+  }
+
+  setIsAnimating(true);
+  setDirection(newDirection);
+  setPhase("shrinking");
+}
 
     function nextCards() {
         animateShift("next");
@@ -94,7 +125,7 @@ export default function FeaturedCarousel() {
     useEffect(() => {
         startRotation();
         return () => clearInterval(intervalRef.current);
-    }, [isAnimating]);
+    }, [startIndex]);
 
     function handleTransitionEnd(e) {
         if (!isAnimating) return;

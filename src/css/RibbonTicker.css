@@ -1,0 +1,44 @@
+.ribbon-ticker-container {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(270deg, #97C5DF, #96C1EC, #D8C8F2, #F9CFF2);
+  padding: 20px 0;
+}
+
+.ribbon-ticker {
+  width: 100%;
+  overflow: hidden;
+}
+
+.ribbon-track {
+  display: flex;
+  width: max-content;
+  animation: ribbon-scroll 20s linear infinite;
+}
+
+.ribbon-item {
+  flex-shrink: 0;
+  margin-right: 50px;
+  font-size: 24px;
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.ribbon-item:hover {
+  transform: scale(1.1);
+  color: #f0b955;
+}
+
+.ribbon-dot {
+  color: #f0b955;
+}
+
+@keyframes ribbon-scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

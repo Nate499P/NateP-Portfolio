@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import FeaturedCarousel from "./components/FeaturedCarousel";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import RibbonTicker from "./components/RibbonTicker";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
 
       <main className="page-shell">
         <Hero />
+        <RibbonTicker />
         <FeaturedCarousel />
         <About />
         <Contact />

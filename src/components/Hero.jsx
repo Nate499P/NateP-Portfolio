@@ -17,6 +17,9 @@ export default function Hero() {
           <a href="#contact" className="hero-btn secondary">
             Contact Me
           </a>
+          <a href="https://wukennprice.carrd.co/" className="hero-btn additional">
+            Commission Info
+          </a>
         </div>
       </div>
 

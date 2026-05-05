@@ -37,6 +37,7 @@ body {
   grid-template-columns: 1.2fr 0.8fr;
   gap: 28px;
   align-items: stretch;
+  
 }
 
 .hero-content,
@@ -57,6 +58,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
+    background: linear-gradient(
+    180deg,
+    #47d2f1,
+    #ba7fa5
+  );
 }
 
 .hero-tag {
@@ -69,7 +76,7 @@ body {
 
 .hero-title {
   margin: 0;
-  font-size: clamp(42px, 6vw, 82px);
+  font-size: clamp(42px, 6%, 82px);
   line-height: 0.95;
   text-shadow: 0 0 20px rgba(163, 6, 207, 0.25);
 }
@@ -84,7 +91,9 @@ body {
 
 .hero-buttons {
   display: flex;
-  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
   margin-top: 30px;
   flex-wrap: wrap;
 }
@@ -104,9 +113,11 @@ body {
 }
 
 .hero-btn.primary {
-  background: linear-gradient(90deg, rgba(109, 222, 242, 0.95), rgba(255,80,255,0.85));
+  background: linear-gradient(90deg, #96C1EC, #D8C8F2);
   color: white;
-  box-shadow: 0 8px 20px rgba(211, 112, 236, 0.35);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.4),
+    0 0 12px rgba(163, 6, 207, 0.25);
 }
 
 .hero-btn.primary:hover {
@@ -117,13 +128,31 @@ body {
 .hero-btn.secondary {
   color: white;
   border: 1px solid rgba(255,255,255,0.18);
-  background: rgba(255,255,255,0.08);
+  background: linear-gradient(90deg, #96C1EC, #D8C8F2);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.4),
+    0 0 12px rgba(163, 6, 207, 0.25);
 }
 
 .hero-btn.secondary:hover {
   transform: translateY(-2px) scale(1.03);
-  background: rgba(255,255,255,0.14);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 12px 26px rgba(163, 6, 207, 0.45);
+}
+
+.hero-btn.additional {
+  color: white;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: linear-gradient(90deg, #96C1EC, #D8C8F2);
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.4),
+    0 0 12px rgba(163, 6, 207, 0.25);
+}
+
+.hero-btn.additional:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 26px rgba(163, 6, 207, 0.45);
 }
 
 .hero-panel {
@@ -131,8 +160,16 @@ body {
   padding: 24px;
   display: flex;
   align-items: stretch;
+  
+    background: linear-gradient(
+    180deg,
+    #47d2f1,
+    #ba7fa5
+  );
+  
 }
 
+/* Feature card box */
 .hero-panel-inner {
   width: 100%;
   border-radius: 22px;
@@ -186,6 +223,11 @@ body {
 .content-card {
   border-radius: 28px;
   padding: 34px;
+    background: linear-gradient(
+    180deg,
+    #47d2f1,
+    #ba7fa5
+  );
 }
 
 .content-card h2 {
@@ -213,6 +255,6 @@ body {
   }
 
   .hero-title {
-    font-size: clamp(36px, 9vw, 64px);
+    font-size: clamp(36px, 9%, 64px);
   }
 }

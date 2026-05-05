@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
   const [active, setActive] = useState("Home");
-  const [isScrolled, setIsScrolled] = useState(false);
   const [blink, setBlink] = useState(false);
   const [squint, setSquint] = useState(false);
 
@@ -35,12 +34,6 @@ export default function Navbar() {
   useEffect(() => {
     moveGlow(active);
   }, [active]);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   useEffect(() => {
     let idleTimer;
@@ -117,16 +110,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="navbar"
-      style={
-        isScrolled
-          ? {
-              background: "rgba(20,20,30,0.95)",
-              boxShadow: "0 6px 25px rgba(0,0,0,0.6)",
-            }
-          : undefined
-      }
-    >
+      className="navbar">
       <div className="nav-eyes">
         <div className={`eye ${blink ? "blink" : ""} ${squint ? "squint" : ""}`}>
           <div className="pupil" />
