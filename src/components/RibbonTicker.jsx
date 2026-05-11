@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "../css/RibbonTicker.css";
 
 export default function RibbonTicker() {
-    const blends = ["Akali", "Evelynn", "Jett", "KDA", "Celeste", "Silver"];
+    const blends = ["Javascript", "HTML", "CSS", "Front-end Development", "React"];
 
     const items = [...blends, ...blends, ...blends, ...blends];
 

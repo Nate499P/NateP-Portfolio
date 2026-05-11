@@ -1,23 +1,22 @@
 // components/FeaturedCarousel.jsx
 import { useEffect, useMemo, useRef, useState } from "react";
 
-
 const imageFiles = [
-    "Wuken1.png",
-    "Wuken2.png",
-    "Wuken3.png",
-    "Wuken4.png",
-    "Wuken5.png",
-    "Wuken6.png",
-    "Wuken7.png",
-    "Wuken8.jpg",
-    "Wuken9.png",
-    "Wuken10.jpg",
-    "Wuken11.jpg",
-    "Wuken12.jpg",
-    "Wuken13.png",
-    "Wuken14.png",
-    "Wuken15.jpg"
+    "Placeholder1",
+    "Placeholder2",
+    "Placeholder3",
+    "Placeholder4",
+    "Placeholder5",
+    "Placeholder6",
+    "Placeholder7",
+    "Placeholder8",
+    "Placeholder9",
+    "Placeholder10",
+    "Placeholder11",
+    "Placeholder12",
+    "Placeholder13",
+    "Placeholder14",
+    "Placeholder15"
 ];
 
 export default function FeaturedCarousel() {
@@ -29,7 +28,7 @@ export default function FeaturedCarousel() {
     const [phase, setPhase] = useState(null);
     const [isAnimating, setIsAnimating] = useState(false);
     const [noTransition, setNoTransition] = useState(false);
-    
+
     const [isMobile, setIsMobile] = useState(false);
 
     const cards = useMemo(() => {
@@ -49,55 +48,54 @@ export default function FeaturedCarousel() {
         });
     }, []);
 
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
 
-useEffect(() => {
-  const checkMobile = () => {
-    setIsMobile(window.innerWidth <= 768);
-  };
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
 
-  checkMobile();
-  window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
-  return () => window.removeEventListener("resize", checkMobile);
-}, []);
+    const visibleCards = useMemo(() => {
+        const amount = isMobile ? 3 : 12;
 
-const visibleCards = useMemo(() => {
-  const amount = isMobile ? 3 : 12;
+        return Array.from({ length: amount }, (_, i) => {
+            const offset = isMobile ? startIndex + i : startIndex - 1 + i;
+            const cardIndex = (offset + cards.length) % cards.length;
+            return cards[cardIndex];
+        });
+    }, [startIndex, cards, isMobile]);
 
-  return Array.from({ length: amount }, (_, i) => {
-    const offset = isMobile ? startIndex + i : startIndex - 1 + i;
-    const cardIndex = (offset + cards.length) % cards.length;
-    return cards[cardIndex];
-  });
-}, [startIndex, cards, isMobile]);
+    function getSizeClass(i) {
+        if (isMobile) {
+            if (i === 1) return "large";
+            return "small";
+        }
 
-   function getSizeClass(i) {
-  if (isMobile) {
-    if (i === 1) return "large";
-    return "small";
-  }
-
-  if (i === 0 || i === 6) return "buffer";
-  if (i === 1 || i === 5) return "small";
-  return "large";
-}
+        if (i === 0 || i === 6) return "buffer";
+        if (i === 1 || i === 5) return "small";
+        return "large";
+    }
 
     function animateShift(newDirection) {
-  if (isAnimating) return;
+        if (isAnimating) return;
 
-  if (isMobile) {
-    setStartIndex((prev) =>
-      newDirection === "next"
-        ? (prev + 1) % cards.length
-        : (prev - 1 + cards.length) % cards.length
-    );
-    return;
-  }
+        if (isMobile) {
+            setStartIndex((prev) =>
+                newDirection === "next"
+                    ? (prev + 1) % cards.length
+                    : (prev - 1 + cards.length) % cards.length
+            );
+            return;
+        }
 
-  setIsAnimating(true);
-  setDirection(newDirection);
-  setPhase("shrinking");
-}
+        setIsAnimating(true);
+        setDirection(newDirection);
+        setPhase("shrinking");
+    }
 
     function nextCards() {
         animateShift("next");
@@ -115,17 +113,13 @@ const visibleCards = useMemo(() => {
     }
 
     function resetRotation() {
-  clearInterval(intervalRef.current);
-
-  intervalRef.current = setInterval(() => {
-    nextCards();
-  }, 5000);
-}
+        startRotation();
+    }
 
     useEffect(() => {
         startRotation();
         return () => clearInterval(intervalRef.current);
-    }, [startIndex]);
+    }, []);
 
     function handleTransitionEnd(e) {
         if (!isAnimating) return;
@@ -181,7 +175,7 @@ const visibleCards = useMemo(() => {
             <div
                 className="carousel-mask"
                 onMouseEnter={() => clearInterval(intervalRef.current)}
-                onMouseLeave={startRotation}>
+                onMouseLeave={resetRotation}>
                 <div
                     id="currentRow"
                     ref={rowRef}

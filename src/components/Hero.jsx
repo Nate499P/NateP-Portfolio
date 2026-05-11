@@ -17,7 +17,7 @@ export default function Hero() {
           <a href="#contact" className="hero-btn secondary">
             Contact Me
           </a>
-          <a href="https://wukennprice.carrd.co/" className="hero-btn additional">
+          <a href="#index" className="hero-btn additional">
             Commission Info
           </a>
         </div>
@@ -32,7 +32,7 @@ export default function Hero() {
           />
           <h2>Featured Work</h2>
           <p>
-            Highlight your strongest commission, design, or project here.
+            Highlight of my strongest commissions, designs, or projects here.
           </p>
         </div>
       </div>

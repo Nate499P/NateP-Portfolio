@@ -1,7 +1,7 @@
 .ribbon-ticker-container {
   width: 100%;
   overflow: hidden;
-  background: linear-gradient(270deg, #97C5DF, #96C1EC, #D8C8F2, #F9CFF2);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
   padding: 20px 0;
 }
 
