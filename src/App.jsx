@@ -8,6 +8,7 @@ import FeaturedCarousel from "./components/FeaturedCarousel";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import RibbonTicker from "./components/RibbonTicker";
+import Certification from "./components/Certificates";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <RibbonTicker />
         <FeaturedCarousel />
         <About />
+        <Certification />
         <Contact />
       </main>
     </>

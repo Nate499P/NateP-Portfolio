@@ -4,7 +4,7 @@ export default function Contact() {
             <div className="content-card">
                 <h2>Contact</h2>
                 <p>
-                    Interested in my work? Reach out through email, social media, or your
+                    Interested in my work? Reach out through email, recuitment sites, or your
                     preferred contact method.
                 </p>
 
@@ -15,20 +15,14 @@ export default function Contact() {
                     <a href="#home" className="hero-btn secondary">
                         Back to Top
                     </a>
-                    <a href="#index" className="hero-btn additional">
-                        Twitter
+                    <a href="#https://www.linkedin.com/in/nparmy0310/" className="hero-btn additional">
+                        LinkedIn
                     </a>
-                    <a href="#index" className="hero-btn additional">
-                        Patreon
+                    <a href="#https://profile.indeed.com/?hl=en_US&co=US&from=gnav-homepage" className="hero-btn additional">
+                        Indeed
                     </a>
-                    <a href="#index" className="hero-btn additional">
-                        Prints
-                    </a>
-                    <a href="#index" className="hero-btn additional">
-                        Ko-fi
-                    </a>
-                    <a href="#index" className="hero-btn additional">
-                        Terms of service
+                    <a href="#https://github.com/Nate499P" className="hero-btn additional">
+                        GitHub
                     </a>
                 </div>
             </div>

@@ -14,9 +14,13 @@ export default function RibbonTicker() {
                         <motion.span
                             key={i}
                             className="ribbon-item"
-                            whileHover={{ scale: 1.2, color: "#f0b955" }}
-                            transition={{ type: "spring", stiffness: "300" }}>
-                            {name} <span className="ribbon-dot">  </span>
+                            whileHover={{
+                                scale: 1.2,
+                                color: "#f0b955",
+                                cursor: "pointer"
+                            }}
+                            transition={{ type: "spring", stiffness: 300 }}>
+                            {name} <span className="ribbon-dot"></span>
                         </motion.span>
                     ))}
                 </div>

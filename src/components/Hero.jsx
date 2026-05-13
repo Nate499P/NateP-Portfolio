@@ -27,7 +27,7 @@ export default function Hero() {
         <div className="hero-panel-inner">
           <img
             src="public/images/Wuken1.png"
-            alt="Featured artwork"
+            alt="Placeholder"
             className="featured-image"
           />
           <h2>Featured Work</h2>
