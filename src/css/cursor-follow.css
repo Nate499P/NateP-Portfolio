@@ -1,0 +1,173 @@
+.cursor-orb {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 8px;
+  height: 8px;
+
+  pointer-events: none;
+  z-index: 9999;
+
+  image-rendering: pixelated;
+  transform-origin: center;
+
+  background: #ff9eff;
+
+  /* ROUND PIXEL ORB */
+  box-shadow:
+    /* top row */
+    16px 0px #ff9eff,
+    24px 0px #ff9eff,
+
+    /* upper curve */
+    8px 8px #ff9eff,
+    16px 8px #d86cff,
+    24px 8px #d86cff,
+    32px 8px #ff9eff,
+
+    /* middle upper */
+    0px 16px #ff9eff,
+    8px 16px #d86cff,
+    16px 16px #7c2cff,
+    24px 16px #7c2cff,
+    32px 16px #d86cff,
+    40px 16px #ff9eff,
+
+    /* center */
+    0px 24px #d86cff,
+    8px 24px #7c2cff,
+    16px 24px #4b0082,
+    24px 24px #4b0082,
+    32px 24px #7c2cff,
+    40px 24px #d86cff,
+
+    /* middle lower */
+    0px 32px #d86cff,
+    8px 32px #7c2cff,
+    16px 32px #4b0082,
+    24px 32px #4b0082,
+    32px 32px #7c2cff,
+    40px 32px #d86cff,
+
+    /* lower curve */
+    8px 40px #d86cff,
+    16px 40px #7c2cff,
+    24px 40px #7c2cff,
+    32px 40px #d86cff,
+
+    /* bottom */
+    16px 48px #d86cff,
+    24px 48px #d86cff;
+
+  filter:
+    drop-shadow(0 0 8px #ff8cff)
+    drop-shadow(0 0 18px #7c2cff);
+
+  animation:
+    pixel-float 2s ease-in-out infinite,
+    pixel-pulse 3s ease infinite;
+}
+
+/* DEVIL EARS */
+.cursor-orb::before,
+.cursor-orb::after {
+  content: "";
+
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  background: #ff9eff;
+
+  box-shadow:
+    0px 8px #d86cff;
+
+  top: -8px;
+}
+
+.cursor-orb::before {
+  left: 8px;
+}
+
+.cursor-orb::after {
+  right: -32px;
+}
+
+/* EYES */
+.cursor-orb .orb-eyes {
+  position: absolute;
+}
+
+.cursor-orb .orb-eyes::before,
+.cursor-orb .orb-eyes::after {
+  content: "";
+
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  background: #ffdfff;
+
+  top: 20px;
+
+  box-shadow:
+    0 0 4px white,
+    0 0 8px #ffb3ff;
+
+  animation: blink 4s infinite;
+}
+
+.cursor-orb .orb-eyes::before {
+  left: 12px;
+}
+
+.cursor-orb .orb-eyes::after {
+  left: 28px;
+}
+
+@keyframes pixel-float {
+  0% {
+    margin-top: 0px;
+  }
+
+  50% {
+    margin-top: -4px;
+  }
+
+  100% {
+    margin-top: 0px;
+  }
+}
+
+@keyframes pixel-pulse {
+  0% {
+    filter:
+      drop-shadow(0 0 8px #ff8cff)
+      drop-shadow(0 0 18px #7c2cff);
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 14px #ffb3ff)
+      drop-shadow(0 0 28px #d86cff);
+  }
+
+  100% {
+    filter:
+      drop-shadow(0 0 8px #ff8cff)
+      drop-shadow(0 0 18px #7c2cff);
+  }
+}
+
+@keyframes blink {
+  0%, 92%, 100% {
+    transform: scaleY(1);
+  }
+
+  95% {
+    transform: scaleY(0.2);
+  }
+}

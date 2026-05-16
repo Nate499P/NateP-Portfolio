@@ -1,44 +1,67 @@
 .ribbon-ticker-container {
-  width: 100%;
-  overflow: hidden;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
-  padding: 20px 0;
+    width: 100%;
+    overflow: hidden;
+
+    background: #1e293b;
+    border-top: 4px solid #f9cff2;
+    border-bottom: 4px solid #f9cff2;
+
+    box-shadow:
+        0 6px 0 #000,
+        0 0 18px rgba(249, 207, 242, 0.35);
+
+    padding: 16px 0;
+    margin: 30px 0;
 }
 
 .ribbon-ticker {
-  width: 100%;
-  overflow: hidden;
+    width: 100%;
+    overflow: hidden;
 }
 
 .ribbon-track {
-  display: flex;
-  width: max-content;
-  animation: ribbon-scroll 20s linear infinite;
+    display: flex;
+    width: max-content;
+    animation: ribbon-scroll 18s linear infinite;
+}
+
+.ribbon-group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 .ribbon-item {
-  flex-shrink: 0;
-  margin-right: 50px;
-  font-size: 24px;
-  color: white;
-  transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.ribbon-item:hover {
-  transform: scale(1.1);
-  color: #f0b955;
+    display: inline-block;
 }
 
 .ribbon-dot {
-  color: #f0b955;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 18px;
+
+    font-size: 18px;
+    line-height: 1;
+
+    color: #f0b955;
+
+    text-shadow:
+        2px 2px 0 #000,
+        4px 4px 0 rgba(0, 0, 0, 0.45);
+
+    transform: translateY(-1px);
+
+    pointer-events: none;
 }
 
 @keyframes ribbon-scroll {
-  0% {
-    transform: translateX(0);
-  }
+    0% {
+        transform: translateX(0);
+    }
 
-  100% {
-    transform: translateX(-50%);
-  }
+    100% {
+        transform: translateX(-50%);
+    }
 }

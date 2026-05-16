@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "../css/RibbonTicker.css";
 
 export default function RibbonTicker() {
-    const blends = ["Javascript", "HTML", "CSS", "Front-end Development", "React"];
+    const blends = ["Javascript ", "HTML ", "CSS ", "Front-end Development ", "React "];
 
     const items = [...blends, ...blends, ...blends, ...blends];
 
@@ -11,17 +11,20 @@ export default function RibbonTicker() {
             <div className="ribbon-ticker">
                 <div className="ribbon-track">
                     {items.map((name, i) => (
-                        <motion.span
-                            key={i}
-                            className="ribbon-item"
-                            whileHover={{
-                                scale: 1.2,
-                                color: "#f0b955",
-                                cursor: "pointer"
-                            }}
-                            transition={{ type: "spring", stiffness: 300 }}>
-                            {name} <span className="ribbon-dot"></span>
-                        </motion.span>
+                        <div key={i} className="ribbon-group">
+                            <motion.span
+                                className="ribbon-item"
+                                whileHover={{
+                                    scale: 1.2,
+                                    color: "#f0b955",
+                                    cursor: "pointer"
+                                }}
+                                transition={{ type: "spring", stiffness: 300 }}>
+                                {name}
+                            </motion.span>
+
+                            <span className="ribbon-dot">◆</span>
+                        </div>
                     ))}
                 </div>
             </div>

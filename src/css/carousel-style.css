@@ -1,8 +1,10 @@
 body {
-    margin: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
-    font-family: Arial, sans-serif;
-    color: white;
+    background: #101828;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 32px 32px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
 }
 
 .featured-carousel {
@@ -18,17 +20,19 @@ body {
 }
 
 .carousel-mask {
-    border-radius: 20px;
+    border-radius: 8px;
     overflow: hidden;
     position: relative;
     height: 100%;
 
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
-    backdrop-filter: blur(8px);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 4px solid #f9cff2;
 
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    box-shadow:
+        6px 6px 0 #000,
+        0 0 18px rgba(249, 207, 242, 0.35);
 }
 
 .row-layer {
@@ -41,7 +45,9 @@ body {
 
 /* cards */
 .slot {
-    border-radius: 40px;
+    background: #334155;
+    border: 4px solid #ffffff;
+    border-radius: 8px;
     background: linear-gradient(180deg, #444, #222);
     display: flex;
     align-items: end;
@@ -49,7 +55,7 @@ body {
     font-size: 28px;
     font-weight: bold;
     color: white;
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    box-shadow: 6px 6px 0 #000;
     overflow: hidden;
     flex-shrink: 0;
     transition:
@@ -63,8 +69,9 @@ body {
 }
 
 .slot:hover {
-    transform: scale(1.06);
-    z-index: 20;
+  transform: translate(-3px, -3px) scale(1.03);
+  box-shadow: 9px 9px 0 #000;
+  z-index: 20;
 }
 
 /* normal resting layout */
