@@ -161,11 +161,7 @@ body {
     border-radius: 18px;
     padding: 20px;
 
-    background: linear-gradient(
-        180deg,
-        rgba(255,255,255,0.06),
-        rgba(255,255,255,0.03)
-    );
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
 
     display: flex;
     flex-direction: column;

@@ -1,6 +1,6 @@
-import "./css/carousel-style.css"
+import "./css/carousel-style.css";
 import "./css/Hero.css";
-import "./css/navbar.css";;
+import "./css/navbar.css";
 import "./css/cursor-follow.css";
 
 import Navbar from "./components/Navbar";
@@ -13,19 +13,19 @@ import Certification from "./components/Certificates";
 import CursorFollow from "./components/CursorFollow";
 
 export default function App() {
-  return (
-    <>
-      <Navbar />
-      <CursorFollow />
+    return (
+        <>
+            <Navbar />
+            <CursorFollow />
 
-      <main className="page-shell">
-        <Hero />
-        <RibbonTicker />
-        <FeaturedCarousel />
-        <About />
-        <Certification />
-        <Contact />
-      </main>
-    </>
-  );
+            <main className="page-shell">
+                <Hero />
+                <RibbonTicker />
+                <FeaturedCarousel />
+                <About />
+                <Certification />
+                <Contact />
+            </main>
+        </>
+    );
 }

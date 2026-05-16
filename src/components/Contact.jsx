@@ -15,10 +15,14 @@ export default function Contact() {
                     <a href="#home" className="hero-btn secondary">
                         Back to Top
                     </a>
-                    <a href="#https://www.linkedin.com/in/nparmy0310/" className="hero-btn additional">
+                    <a
+                        href="#https://www.linkedin.com/in/nparmy0310/"
+                        className="hero-btn additional">
                         LinkedIn
                     </a>
-                    <a href="#https://profile.indeed.com/?hl=en_US&co=US&from=gnav-homepage" className="hero-btn additional">
+                    <a
+                        href="#https://profile.indeed.com/?hl=en_US&co=US&from=gnav-homepage"
+                        className="hero-btn additional">
                         Indeed
                     </a>
                     <a href="#https://github.com/Nate499P" className="hero-btn additional">

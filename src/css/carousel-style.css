@@ -69,9 +69,9 @@ body {
 }
 
 .slot:hover {
-  transform: translate(-3px, -3px) scale(1.03);
-  box-shadow: 9px 9px 0 #000;
-  z-index: 20;
+    transform: translate(-3px, -3px) scale(1.03);
+    box-shadow: 9px 9px 0 #000;
+    z-index: 20;
 }
 
 /* normal resting layout */
