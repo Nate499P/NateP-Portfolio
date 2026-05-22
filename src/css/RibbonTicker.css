@@ -3,12 +3,10 @@
     overflow: hidden;
 
     background: #1e293b;
-    border-top: 4px solid #f9cff2;
-    border-bottom: 4px solid #f9cff2;
+    border-top: 4px solid #8F0D48;
+    border-bottom: 4px solid #8F0D48;
 
-    box-shadow:
-        0 6px 0 #000,
-        0 0 18px rgba(249, 207, 242, 0.35);
+    box-shadow: 4px 4px 0 #420439;
 
     padding: 16px 0;
     margin: 30px 0;

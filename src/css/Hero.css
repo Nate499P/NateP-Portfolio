@@ -49,18 +49,18 @@ body {
 
     backdrop-filter: blur(14px);
 
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid #8F0D48;
 
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
 }
 
 .hero-content {
     background: #1e293b;
-    border: 4px solid #f9cff2;
+    border: 4px solid #8F0D48;
     border-radius: 8px;
     box-shadow:
         6px 6px 0 #000,
-        0 0 18px rgba(249, 207, 242, 0.35);
+        0 0 18px rgba(143, 13, 72, 0.35);
 
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -89,60 +89,129 @@ body {
     color: rgba(255, 255, 255, 0.88);
 }
 
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-
 .hero-btn {
-    background: #4f46e5;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 170px;
-    height: 54px;
-    padding: 0 22px;
-    border: 3px solid #ffffff;
-    border-radius: 6px;
-    box-shadow: 4px 4px 0 #000;
-    color: white;
+    margin-bottom: 17px;
+
+    min-width: 180px;
+    height: 58px;
+    padding: 0 24px;
+
+    background: linear-gradient(
+        to bottom,
+        #ffeb3b 0%,
+        #facc15 45%,
+        #f59e0b 100%
+    );
+
+    border: 4px solid #420439;
+    border-radius: 10px;
+
+    color: #111;
+    font-family: "Press Start 2P", cursive;
     text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: 0.25s ease;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
     text-transform: uppercase;
-}
-
-.hero-btn:hover {
-    transform: translateY(-2px) scale(1.02);
 
     box-shadow:
-        0 14px 30px rgba(0, 0, 0, 0.45),
-        0 0 18px rgba(79, 70, 229, 0.4);
+        0 6px 0 #290223,
+        0 10px 18px #8f147d,
+        inset 0 3px 0 #380931,
+        inset 0 -4px 0 #420439;
+
+    transition:
+        transform 0.08s ease,
+        box-shadow 0.08s ease,
+        filter 0.2s ease;
+
+    position: relative;
+    overflow: hidden;
+
+    image-rendering: pixelated;
 }
 
-.hero-btn.primary,
-.hero-btn.secondary,
-.hero-btn.additional {
-    background: linear-gradient(135deg, #2563eb, #4f46e5);
+/* glossy arcade shine */
+.hero-btn::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    right: 6px;
+    height: 40%;
+
+    background: rgba(255,255,255,0.35);
+
+    border-radius: 6px;
+    pointer-events: none;
+}
+
+/* hover */
+.hero-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 8px 0 #290223,
+        0 16px 26px #8f147d,
+        0 0 18px #420439,
+        inset 0 3px 0 #380931,
+        inset 0 -4px 0 #420439;
+
+    cursor: pointer;
+}
+
+/* pressed effect */
+.hero-btn:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 2px 0 #000,
+        0 4px 10px rgba(0,0,0,0.35),
+        inset 0 2px 0 rgba(255,255,255,0.4);
+}
+
+/* individual color themes */
+.hero-btn.primary {
+    background: linear-gradient(
+        to bottom,
+        #60a5fa,
+        #2563eb,
+        #1d4ed8
+    );
 
     color: white;
+}
 
-    border: 1px solid rgba(255, 255, 255, 0.08);
+.hero-btn.secondary {
+    background: linear-gradient(
+        to bottom,
+        #f472b6,
+        #ec4899,
+        #be185d
+    );
 
-    box-shadow:
-        0 10px 24px rgba(0, 0, 0, 0.35),
-        0 0 12px rgba(37, 99, 235, 0.25);
-    margin-bottom: 20px;
+    color: white;
+}
+
+.hero-btn.additional {
+    background: linear-gradient(
+        to bottom,
+        #4ade80,
+        #22c55e,
+        #15803d
+    );
+
+    color: white;
 }
 
 .hero-panel {
     border-radius: 6px;
-    border: 3px solid #ffffff;
+    border: 3px solid #8F0D48;
     padding: 4px;
 
     display: flex;
@@ -150,7 +219,7 @@ body {
     align-items: center;
 
     background: #1e293b;
-    box-shadow: 4px 4px 0 #000;
+    box-shadow: 4px 4px 0 #420439;
 }
 
 /* Feature card box */
@@ -186,7 +255,7 @@ body {
 
     box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.4),
-        0 0 12px rgba(244, 243, 244, 0.25);
+        0 0 12px #420439;
 
     transition:
         transform 0.3s ease,
@@ -207,11 +276,11 @@ body {
 
 .content-card {
     background: #1e293b;
-    border: 4px solid #f9cff2;
+    border: 4px solid #8F0D48;
     border-radius: 8px;
     box-shadow:
         6px 6px 0 #000,
-        0 0 18px rgba(249, 207, 242, 0.35);
+        0 0 18px #420439;
 
     backdrop-filter: none;
     -webkit-backdrop-filter: none;

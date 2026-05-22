@@ -133,11 +133,15 @@ export default function Navbar() {
                         {link.label}
                     </a>
                 ))}
-
-                <div className="nav-hover-glow" ref={glowRef} />
             </div>
 
-            <button className="menu-toggle">☰</button>
+            <div className="nav-right">
+                <button className="menu-toggle">☰</button>
+
+                <div className="nav-logo">
+                    <img src="/images/logo.png" alt="Logo" />
+                </div>
+            </div>
         </nav>
     );
 }

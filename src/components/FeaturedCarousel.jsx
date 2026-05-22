@@ -1,5 +1,6 @@
 // components/FeaturedCarousel.jsx
 import { useEffect, useMemo, useRef, useState } from "react";
+import BinaryRain from "./binary-rain";
 
 const imageFiles = [
     "Placeholder1",
@@ -77,7 +78,8 @@ export default function FeaturedCarousel() {
 
         if (i === 0 || i === 6) return "buffer";
         if (i === 1 || i === 5) return "small";
-        return "large";
+        if (i === 2 || i === 4) return "large";
+        return "center";
     }
 
     function animateShift(newDirection) {
@@ -94,44 +96,17 @@ export default function FeaturedCarousel() {
 
         setIsAnimating(true);
         setDirection(newDirection);
+
+        /* 1. make cards uniform */
         setPhase("shrinking");
-    }
 
-    function nextCards() {
-        animateShift("next");
-    }
-
-    function prevCards() {
-        animateShift("prev");
-    }
-
-    function startRotation() {
-        clearInterval(intervalRef.current);
-        intervalRef.current = setInterval(() => {
-            nextCards();
-        }, 5000);
-    }
-
-    function resetRotation() {
-        startRotation();
-    }
-
-    useEffect(() => {
-        startRotation();
-        return () => clearInterval(intervalRef.current);
-    }, []);
-
-    function handleTransitionEnd(e) {
-        if (!isAnimating) return;
-
-        if (phase === "shrinking" && (e.propertyName === "width" || e.propertyName === "height")) {
+        setTimeout(() => {
             setPhase("sliding");
-            return;
-        }
+        }, 550);
 
-        if (phase === "sliding" && e.propertyName === "transform") {
+        setTimeout(() => {
             setStartIndex((prev) =>
-                direction === "next"
+                newDirection === "next"
                     ? (prev + 1) % cards.length
                     : (prev - 1 + cards.length) % cards.length
             );
@@ -145,17 +120,47 @@ export default function FeaturedCarousel() {
                     setPhase("growing");
                 });
             });
+        }, 1700);
 
-            return;
-        }
-
-        if (phase === "growing" && (e.propertyName === "width" || e.propertyName === "height")) {
+        setTimeout(() => {
             setIsAnimating(false);
             setDirection(null);
             setPhase(null);
             setNoTransition(false);
-        }
+        }, 2250);
+
+        setTimeout(() => {
+            setIsAnimating(false);
+            setDirection(null);
+            setPhase(null);
+            setNoTransition(false);
+        }, 2500);
     }
+    function nextCards() {
+        if (isAnimating) return;
+        animateShift("next");
+    }
+
+    function prevCards() {
+        if (isAnimating) return;
+        animateShift("prev");
+    }
+
+    function startRotation() {
+        clearInterval(intervalRef.current);
+        intervalRef.current = setInterval(() => {
+            nextCards();
+        }, 8000);
+    }
+
+    function resetRotation() {
+        startRotation();
+    }
+
+    useEffect(() => {
+        startRotation();
+        return () => clearInterval(intervalRef.current);
+    }, []);
 
     const rowClasses = [
         "row-layer",
@@ -176,11 +181,9 @@ export default function FeaturedCarousel() {
                 className="carousel-mask"
                 onMouseEnter={() => clearInterval(intervalRef.current)}
                 onMouseLeave={resetRotation}>
-                <div
-                    id="currentRow"
-                    ref={rowRef}
-                    className={rowClasses}
-                    onTransitionEnd={handleTransitionEnd}>
+                <BinaryRain />
+
+                <div id="currentRow" ref={rowRef} className={rowClasses}>
                     {visibleCards.map((card, i) => (
                         <div className={`slot ${getSizeClass(i)}`} key={`${card.image}-${i}`}>
                             <div className="card-inner">
