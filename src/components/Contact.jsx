@@ -25,10 +25,10 @@ export default function Contact() {
                     </a>
                     <a
                         href="#https://profile.indeed.com/?hl=en_US&co=US&from=gnav-homepage"
-                        className="hero-btn additional">
+                        className="hero-btn secondary">
                         Indeed
                     </a>
-                    <a href="#https://github.com/Nate499P" className="hero-btn additional">
+                    <a href="#https://github.com/Nate499P" className="hero-btn primary">
                         GitHub
                     </a>
                 </div>
