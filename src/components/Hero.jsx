@@ -1,7 +1,7 @@
 import BinaryRain from "./binary-rain";
 import "../css/binary-rain.css";
 
-export default function Hero() {
+export default function Hero({ pelletsEaten }) {
     return (
         <section id="home" className="hero-section">
             <div className="hero-content">
@@ -29,6 +29,13 @@ export default function Hero() {
                         <a href="#index" className="hero-btn additional">
                             Commission Info
                         </a>
+
+                        <div className="score-board">
+                            <span className="score-label">Pellets Eaten</span>
+                            <span className="score-value">
+                                {pelletsEaten.toString().padStart(6, "0")}
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>

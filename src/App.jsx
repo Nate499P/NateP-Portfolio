@@ -12,14 +12,18 @@ import RibbonTicker from "./components/RibbonTicker";
 import Certification from "./components/Certificates";
 import CursorFollow from "./components/CursorFollow";
 
+import { useState } from "react";
+
 export default function App() {
+    const [pelletsEaten, setPelletsEaten] = useState(0);
+
     return (
         <>
             <Navbar />
-            <CursorFollow />
 
             <main className="page-shell">
-                <Hero />
+                <Hero pelletsEaten={pelletsEaten} />
+                <CursorFollow setPelletsEaten={setPelletsEaten} />
                 <RibbonTicker />
                 <FeaturedCarousel />
                 <About />
