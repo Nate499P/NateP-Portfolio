@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../css/carousel-style.css";
+import "../css/binary-rain.css";
 
 export default function BinaryRain() {
     const [binary, setBinary] = useState("");

@@ -1,4 +1,6 @@
 import "../css/Certification.css";
+import "../css/Certification.css";
+import BinaryRain from "./binary-rain";
 
 const certifications = [
     {
@@ -31,6 +33,7 @@ export default function Certification() {
     return (
         <section id="certification" className="content-section">
             <div className="content-card">
+            <BinaryRain />
                 <h2>Certifications</h2>
                 <p>
                     These are my current certifications and clearances. I am always looking to

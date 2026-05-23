@@ -1,7 +1,10 @@
+import BinaryRain from "./binary-rain";
+
 export default function Contact() {
     return (
         <section id="contact" className="content-section">
             <div className="content-card">
+                <BinaryRain />
                 <h2>Contact</h2>
                 <p>
                     Interested in my work? Reach out through email, recuitment sites, or your

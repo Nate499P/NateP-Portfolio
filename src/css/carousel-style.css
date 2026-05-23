@@ -294,26 +294,3 @@ body {
         height: 180px;
     }
 }
-
-/* BINARY RAIN */
-.binary-rain {
-    position: absolute;
-    inset: 0;
-
-    overflow: hidden;
-    pointer-events: none;
-
-    font-family: monospace;
-    font-size: 14px;
-    line-height: 18px;
-    letter-spacing: 2px;
-
-    color: rgba(0, 255, 140, 0.14);
-
-    white-space: pre-wrap;
-    word-break: break-all;
-
-    padding: 20px;
-
-    z-index: 0;
-}
